@@ -588,9 +588,10 @@ export class Calendar implements AfterViewInit,AfterViewChecked,OnInit,OnDestroy
         }
                 
         if(this.isMultipleSelection() && this.isSelected(dateMeta)) {
-            this.value = this.value.filter((date, i) => {
+            this.updateModel( this.value.filter((date, i) => {
                 return !this.isDateEquals(date, dateMeta);
-            });
+                    }) 
+            );
         }
         else {
             if(this.shouldSelectDate(dateMeta)) {
